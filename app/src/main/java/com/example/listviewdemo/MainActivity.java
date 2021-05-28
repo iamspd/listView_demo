@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     private ListView mListView;
 
     // variables
-    private ArrayList<String> myFamily = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         mListView = findViewById(R.id.myListView);
 
-        myFamily = (ArrayList<String>) Arrays.asList("Priyank", "Strange", "Emma");
+        ArrayList<String> myFamily = new ArrayList<>(Arrays.asList("Priyank", "Strange", "Emma"));
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, myFamily);
