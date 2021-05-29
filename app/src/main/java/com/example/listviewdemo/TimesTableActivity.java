@@ -4,12 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SeekBar;
 
+import java.util.ArrayList;
+
 public class TimesTableActivity extends AppCompatActivity {
 
+    // constants
     private static final String TAG = "TimesTableActivity";
+
+    // variables
+    private ArrayList<String> timesTableContent = new ArrayList<>();
+
     // widgets
     private SeekBar seekBarTimesTable;
     private ListView listTimesTable;
@@ -56,5 +64,18 @@ public class TimesTableActivity extends AppCompatActivity {
         });
 
         listTimesTable = findViewById(R.id.listTimesTable);
+
+        int timesTable = 10;
+
+        for (int i = 1; i <= 10; i++){
+
+            timesTableContent.add(Integer.toString(i * timesTable));
+
+        }
+
+        ArrayAdapter<String> timesTableAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, timesTableContent);
+
+        listTimesTable.setAdapter(timesTableAdapter);
     }
 }
