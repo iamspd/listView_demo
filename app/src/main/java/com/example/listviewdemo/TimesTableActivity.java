@@ -16,7 +16,6 @@ public class TimesTableActivity extends AppCompatActivity {
     private static final String TAG = "TimesTableActivity";
 
     // variables
-    private ArrayList<String> timesTableContent = new ArrayList<>();
 
     // widgets
     private SeekBar seekBarTimesTable;
@@ -48,7 +47,8 @@ public class TimesTableActivity extends AppCompatActivity {
 
                 }
 
-                Log.i("SeekBar value: ", Integer.toString(timesTable));
+                // Log.i("SeekBar value: ", Integer.toString(timesTable));
+                generateTimesTable(timesTable);
 
             }
 
@@ -65,7 +65,13 @@ public class TimesTableActivity extends AppCompatActivity {
 
         listTimesTable = findViewById(R.id.listTimesTable);
 
-        int timesTable = 10;
+        generateTimesTable(10);
+
+    }
+
+    public void generateTimesTable(int timesTable){
+
+        ArrayList<String> timesTableContent = new ArrayList<>();
 
         for (int i = 1; i <= 10; i++){
 
@@ -77,5 +83,6 @@ public class TimesTableActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, timesTableContent);
 
         listTimesTable.setAdapter(timesTableAdapter);
+
     }
 }
